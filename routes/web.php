@@ -102,6 +102,9 @@
     Route::get('cancel', 'PayPalController@cancel')->name('payment.cancel');
     Route::get('payment/success', 'PayPalController@success')->name('payment.success');
 
+// New
+Route::get('/yellow-pages', 'FrontendController@yp')->name('yellow-pages');
+Route::get('/goodwill-messages', 'FrontendController@goodwill')->name('goodwill-messages');
 
 // Backend section start
 
