@@ -45,15 +45,16 @@
             <div class="col-lg-7 col-sm-12 package__list">
                 <div class="card shadow-lg">
                     <div class="card-body">
-                        <form>
+                        <form method="POST" action="{{ route('pay') }}">
+                            @csrf
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Select Your Category</label>
                                 <select class="form-control" id="exampleFormControlSelect1" style="width: 100%;">
-                                    <option><b>Foptioners for Advert</b> Full &#8358;50,000; Half &#8358;20,000; <span>Quarter &#8358;10,000</span></option>
-                                    <option><b>Words Advert</b><span>&#8358;10,000</span></option>
-                                    <option><b>Center Spread</b><span>&#8358;1,000,000</span></option>
-                                    <option><b>Inside</b>Front & Back Covers<span> &#8358;1,000,000</span></option>
-                                    <option><b>Back cover</b><span>&#8358;2,000,000</span></option>
+                                    <option class="list-group-item"><b>Foptioners for Advert</b> Full &#8358;50,000; Half &#8358;20,000; <span>Quarter &#8358;10,000</span></option>
+                                    <option class="list-group-item"><b>Words Advert</b><span>&#8358;10,000</span></option>
+                                    <option class="list-group-item"><b>Center Spread</b><span>&#8358;1,000,000</span></option>
+                                    <option class="list-group-item"><b>Inside</b>Front & Back Covers<span> &#8358;1,000,000</span></option>
+                                    <option class="list-group-item"><b>Back cover</b><span>&#8358;2,000,000</span></option>
                                 </select>
                             </div>
                             <div class="form-group">
@@ -62,11 +63,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Phone Number</label>
-                                <input type="text" class="form-control" name="phone" placeholder="" />
+                                <input type="text" class="form-control" name="phone" placeholder="Enter your phone number" />
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Email</label>
-                                <input type="email" class="form-control" name="name" placeholder="" />
+                                <input type="email" class="form-control" name="email" placeholder="Enter your email" />
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Message</label>
@@ -74,7 +75,7 @@
                             </div>
                             <input type="hidden" name="email" value="test@gmail.com" required> {{-- required --}}
                             <input type="hidden" name="orderID" value="345">
-                            <input type="hidden" name="amount" id="hiddenAmount" value="2000000"> {{-- required in kobo --}}
+                            <input type="hidden" name="amount" id="hiddenAmount" value="1000000"> {{-- required in kobo --}}
                             <input type="hidden" name="quantity" value="1">
                             <input type="hidden" name="currency" value="NGN">
                             <button type="submit" class="btn btn-success btn-block">Proceed</button>

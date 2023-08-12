@@ -49,18 +49,21 @@ class PaymentController extends Controller
      * Obtain Paystack payment information
      * @return void
      */
-    public function handleGatewayCallback()
+    public function handleGatewayCallback(Request $request)
     {
         $paymentDetails = Paystack::getPaymentData();
+        $email = $request->input('email');
+        $name = $request->name;
+        $amount = $request->amount;
 
         if ($paymentDetails["data"]["status"] == "success") {
             $this->updateTransaction($paymentDetails["data"]);
+            // $this->sendYellowPageEmail($email, $name, $amount);
             return Redirect::back()->withMessage(['msg' => 'Payment Successful', 'type' => 'success']);
         }
     }
     public function checkAndConvertAmount($amount)
     {
-        return $amount;
         $final_amount = 0;
         if ($amount >= 2500) {
             $charges = (1.5 / 100) * $amount + 100;

@@ -12,7 +12,7 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    protected function sendYellowPageEmail(string $email, string $name, string $qualification, string $amount): void
+    protected function sendYellowPageEmail(string $email, string $name, string $amount): void
     {
         $message = "Hello $name,\n\n";
         $message .= "Your payment of the sum of $amount for the yellow page service has been completed.\n";
