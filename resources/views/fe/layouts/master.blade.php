@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="{{ asset('fe/css/owl.carousel.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{ asset('fe/css/slicknav.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{ asset('fe/css/style.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('fe/css/custom-css.css')}}" type="text/css">
+
 </head>
 
 <body style="background: #dee6b3;">

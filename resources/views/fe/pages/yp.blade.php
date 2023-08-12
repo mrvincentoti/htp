@@ -31,16 +31,16 @@
                     <div class="card-body">
                         <h3>Categories</h3>
                         <div class="product__details__text">
-                            <ul>
-                                <li><b>Applicants</b> Personal details, Name, Phone Number and Qualification <span>- Free</span></li>
-                                <li><b>Associations</b> Exco Page <span>- &#8358;20,000</span></li>
-                                <li><b>Entrepreneurs</b> Business & Contact Details <span>- &#8358;10,000</span></li>
-                                <li><b>Professional</b> Specifications & Contact Complementary Cards Details <span>- &#8358;10,000</span></li>
-                                <li><b>Fliers for Advert</b> Full &#8358;50,000; Half &#8358;20,000; <span>Quarter &#8358;10,000</span></li>
-                                <li><b>Words Advert</b><span>&#8358;10,000</span></li>
-                                <li><b>Center Spread</b><span>&#8358;1,000,000</span></li>
-                                <li><b>Inside</b>Front & Back Covers<span> &#8358;1,000,000</span></li>
-                                <li><b>Back cover</b><span>&#8358;2,000,000</span></li>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><b>Applicants</b> Personal details, Name, Phone Number and Qualification <span>- Free</span></li>
+                                <li class="list-group-item"><b>Associations</b> Exco Page <span>- &#8358;20,000</span></li>
+                                <li class="list-group-item"><b>Entrepreneurs</b> Business & Contact Details <span>- &#8358;10,000</span></li>
+                                <li class="list-group-item"><b>Professional</b> Specifications & Contact Complementary Cards Details <span>- &#8358;10,000</span></li>
+                                <li class="list-group-item"><b>Fliers for Advert</b> Full &#8358;50,000; Half &#8358;20,000; <span>Quarter &#8358;10,000</span></li>
+                                <li class="list-group-item"><b>Words Advert</b><span>&#8358;10,000</span></li>
+                                <li class="list-group-item"><b>Center Spread</b><span>&#8358;1,000,000</span></li>
+                                <li class="list-group-item"><b>Inside</b>Front & Back Covers<span> &#8358;1,000,000</span></li>
+                                <li class="list-group-item"><b>Back cover</b><span>&#8358;2,000,000</span></li>
                             </ul>
                         </div>
                     </div>
@@ -49,25 +49,48 @@
             <div class="col-lg-5 col-sm-12 package__list">
                 <div class="card shadow-lg">
                     <div class="card-body">
-                        <form>
+                        <form method="POST" action="{{ route('pay') }}">
+                            @csrf
                             <div class="form-group">
-                                <label for="exampleFormControlSelect1">Select Your Category</label>
-                                <select class="form-control" id="exampleFormControlSelect1" style="width: 100%;">
-                                    <!-- <option>Applicants Personal details, Name, Phone Number and Qualification</option>
-                                    <option>Associations Exco Page <span>- &#8358;20,000</span></option>
-                                    <option><b>Entrepreneurs</b> Business & Contact Details <span>- &#8358;10,000</span></option>
-                                    <option><b>Professional</b> Specifications & Contact Complementary Cards Details <span>- &#8358;10,000</span></option>
-                                    <option><b>Foptioners for Advert</b> Full &#8358;50,000; Half &#8358;20,000; <span>Quarter &#8358;10,000</span></option>
-                                    <option><b>Words Advert</b><span>&#8358;10,000</span></option>
-                                    <option><b>Center Spread</b><span>&#8358;1,000,000</span></option>
-                                    <option><b>Inside</b>Front & Back Covers<span> &#8358;1,000,000</span></option>
-                                    <option><b>Back cover</b><span>&#8358;2,000,000</span></option> -->
+                                <label for="categoryDropdown">Select Your Category</label>
+                                <select class="form-control" id="categoryDropdown" style="width: 100%;">
                                     <option value="">Select category</option>
+                                    <option data-amount="0">Applicants Personal details, Name, Phone Number and Qualification</option>
+                                    <option data-amount="20000">Associations Exco Page <span>- &#8358;20,000</span></option>
+                                    <option data-amount="10000"><b>Entrepreneurs</b> Business & Contact Details <span>- &#8358;10,000</span></option>
+                                    <option data-amount="10000"><b>Professional</b> Specifications & Contact Complementary Cards Details <span>- &#8358;10,000</span></option>
+                                    <option data-amount="20000"><b>Foptioners for Advert</b> Full &#8358;50,000; Half &#8358;20,000; <span>Quarter &#8358;10,000</span></option>
+                                    <option data-amount="10000"><b>Words Advert</b><span>&#8358;10,000</span></option>
+                                    <option data-amount="1000000"><b>Center Spread</b><span>&#8358;1,000,000</span></option>
+                                    <option data-amount="1000000"><b>Inside</b>Front & Back Covers<span> &#8358;1,000,000</span></option>
+                                    <option data-amount="2000000"><b>Back cover</b><span>&#8358;2,000,000</span></option>
+                                    {{-- <option value="">Select category</option>
                                     @foreach($yellows as $yellow)
-                                    <option value="{{ $yellow->id }}">{{ $yellow->title."; ".$yellow->description." - &#8358;".$yellow->amount }}</option>
-                                    @endforeach
+                                    <option name="amount" value="{{ $yellow->amount }}">{{ $yellow->title."; ".$yellow->description." - &#8358;".$yellow->amount }}</option>
+                                    @endforeach --}}
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Name</label>
+                                <input type="text" class="form-control" name="name" placeholder="Enter the name you want to appear on the brochure" />
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Phone Number</label>
+                                <input type="text" class="form-control" name="phone" placeholder="Enter your phone number" />
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Email</label>
+                                <input type="email" class="form-control" name="email" placeholder="Enter your email" />
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Qualification</label>
+                                <input type="text" class="form-control" name="qualification" placeholder="Enter your qualification" />
+                            </div>
+                            <input type="hidden" name="email" value="test@gmail.com" required> {{-- required --}}
+                            <input type="hidden" name="orderID" value="345">
+                            <input type="hidden" name="amount" id="hiddenAmount" value="2000000"> {{-- required in kobo --}}
+                            <input type="hidden" name="quantity" value="1">
+                            <input type="hidden" name="currency" value="NGN">
                             <button type="submit" class="btn btn-success btn-block">Proceed</button>
                         </form>
                     </div>

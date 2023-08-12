@@ -32,11 +32,11 @@
                         <h3>Categories</h3>
                         <div class="product__details__text">
                             <ul>
-                                <li><b>Fliers for Advert</b> Full &#8358;50,000; Half &#8358;20,000; <span>Quarter &#8358;10,000</span></li>
-                                <li><b>Words Advert</b><span>&#8358;10,000</span></li>
-                                <li><b>Center Spread</b><span>&#8358;1,000,000</span></li>
-                                <li><b>Inside</b>Front & Back Covers<span> &#8358;1,000,000</span></li>
-                                <li><b>Back cover</b><span>&#8358;2,000,000</span></li>
+                                <li class="list-group-item"><b>Fliers for Advert</b> Full &#8358;50,000; Half &#8358;20,000; <span>Quarter &#8358;10,000</span></li>
+                                <li class="list-group-item"><b>Words Advert</b><span>&#8358;10,000</span></li>
+                                <li class="list-group-item"><b>Center Spread</b><span>&#8358;1,000,000</span></li>
+                                <li class="list-group-item"><b>Inside</b>Front & Back Covers<span> &#8358;1,000,000</span></li>
+                                <li class="list-group-item"><b>Back cover</b><span>&#8358;2,000,000</span></li>
                             </ul>
                         </div>
                     </div>
@@ -72,6 +72,11 @@
                                 <label for="exampleFormControlSelect1">Message</label>
                                 <textarea class="form-control" name="message"></textarea>
                             </div>
+                            <input type="hidden" name="email" value="test@gmail.com" required> {{-- required --}}
+                            <input type="hidden" name="orderID" value="345">
+                            <input type="hidden" name="amount" id="hiddenAmount" value="2000000"> {{-- required in kobo --}}
+                            <input type="hidden" name="quantity" value="1">
+                            <input type="hidden" name="currency" value="NGN">
                             <button type="submit" class="btn btn-success btn-block">Proceed</button>
                         </form>
                     </div>
